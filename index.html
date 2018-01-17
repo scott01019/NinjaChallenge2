@@ -9,6 +9,7 @@
 		var direction = "down";
 		var step = 1;
 		function update() {
+			step = (step == 1) ? 2 : 1;
 			document.getElementById("character").style.left = leftValue + "px";
 			document.getElementById("character").style.top = topValue + "px";
 			document.getElementById("character").style.backgroundImage = "url('img/" + direction + step + ".png')";
@@ -19,23 +20,20 @@
 			if (e.keyCode == 37) { // LEFT
 				leftValue = (leftValue - 10 < 0) ? 0 : (leftValue - 10);
 				direction = "left";
-				step = (step == 1) ? 2 : 1;
 			}
 			else if (e.keyCode == 39) { // RIGHT
 				leftValue = (leftValue + 10 > 500) ? 500 : (leftValue + 10);
 				direction = "right";
-				step = (step == 1) ? 2 : 1;
 			}
 			else if (e.keyCode == 40) { // DOWN
 				topValue = (topValue + 10 > 500) ? 500 : (topValue + 10);
 				direction = "down";
-				step = (step == 1) ? 2 : 1;
 			}
 			else if (e.keyCode == 38) { // UP
 				topValue = (topValue - 10 < 0) ? 0 : (topValue - 10);
 				direction = "top";
-				step = (step == 1) ? 2 : 1;
-			}
+			} 
+			else return;
 			update();
 		}
 	</script>
